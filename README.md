@@ -1,7 +1,7 @@
 # Intro
 
-This is an API that can calculate how much a pension savings pot will be worth given an initial deposit, 
-future monthly deposits, and interest rate, after a fixed number of months.
+This is an API that can calculate how much a pension savings pot will be worth in the future.
+It takes an initial deposit, future monthly deposits, an annualised interest rate, and a fixed number of months in which the pot will mature.
 
 This API is an express API, roughly following an MVC pattern.
 The controller is used mostly to validate the data received before passing it on to the model.
@@ -24,6 +24,21 @@ To run it locally :
 4. To run the server tests from the root level : `yarn test`
 
 5. To run the API locally on your machine: `yarn start`
+
+# Example Request & Response body
+[http://localhost:3001/api/savings?initialDeposit=2000&monthlyDeposit=500&interestRate=0.03&timeInMonths=24]
+
+```
+{
+    dataArray: [ 2000, 8144.02, 14474.92 ],
+    totalCompoundValue: 14474.92,
+    interestsGainedOnMonthlyDeposits: 351.41,
+    interestsGainedOnInitialDeposit: 123.51,
+    totalInterestGained: 474.92,
+    totalAmountInvested: 14000
+}
+```
+
 
 
 
